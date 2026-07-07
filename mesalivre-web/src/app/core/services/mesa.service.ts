@@ -52,7 +52,7 @@ export class MesaService {
       return of(novaMesa);
     }
 
-    const restauranteId = 2;
+    const restauranteId = 1;
 
     const payload = {
       numero: this.extrairNumeroDaMesa(mesa.nome),
