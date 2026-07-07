@@ -1,149 +1,311 @@
-# 🍽️ MesaLivre – Sistema de Reservas para Restaurantes
+# 🍽️ MesaLivre
 
-![Angular](https://img.shields.io/badge/Angularstyle=for-the-badge&logo=angular)
-![Spring Boot](https://img.shields.io/badge/S6DB33F?style=for-the-badge&logo=springboot)
+### Sistema Profissional de Gestão de Reservas para Restaurantes
+
+<p align="center">
+
+![Angular](https://img.shields.io/badge/Angular-20-DD0031the-badge&logo=angular&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=for-the-badge&&logoColor=white)
 ![Java](https://lds.io/badge/Java-21-orange?style=for-the-badge)
-![PostgreSQL](https://img.shields.io/bL-Database-336791?style=for-the-badge&logo=postgresql)
-![JWT](https://img.shields.io/badge/JWT-Authenticationstyle=for-the-badge)
-![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-blue?style)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white//img.shields.io/badge/JWT-ication-black?style=for-the-badge)
+![REST API](httpsds.io/badge/REST_API-Ready-blue?style=for-the-badge)
+![Responsive](https://img.shields.io/be-Mobile%20First-success?style=for-the-badge)
+
+</p>
+
+<p align="center">
+Sistema Full Stack para gerenciamento inteligente de reservas, mesas, clientes e disponibilidade em restaurantes.
+</p>
 
 ---
 
-## 📋 Sobre o Projeto
+# 📖 Visão Geral
 
-MesaLivre é uma aplicação Full Stack para gerenciamento de reservas em restaurantes, desenvolvida com Angular, Spring Boot e PostgreSQL.
+O **MesaLivre** é uma aplicação Full Stack desenvolvida para modernizar o processo de gerenciamento de reservas em restaurantes.
 
-O sistema permite o gerenciamento completo de restaurantes, mesas, clientes e reservas, oferecendo uma experiência moderna, intuitiva e responsiva para administração de estabelecimentos gastronômicos.
+A plataforma permite que administradores controlem mesas, clientes, disponibilidade e reservas em tempo real através de uma interface moderna e totalmente responsiva.
 
-O projeto foi desenvolvido com foco em arquitetura Full Stack, integração entre frontend e backend, autenticação segura com JWT e persistência de dados em PostgreSQL.
+O projeto foi construído utilizando práticas modernas de desenvolvimento de software, arquitetura em camadas, APIs REST e autenticação baseada em JWT.
 
 ---
 
-## 🚀 Funcionalidades
+# 🎯 Objetivos do Projeto
 
-### 🔐 Autenticação
+O MesaLivre foi desenvolvido para demonstrar conhecimentos avançados em:
+
+- Desenvolvimento Full Stack
+- Arquitetura Cliente-Servidor
+- APIs RESTful
+- Angular Standalone
+- Spring Boot
+- PostgreSQL
+- Segurança com JWT
+- Modelagem de Banco de Dados
+- Responsividade Mobile First
+- Integração Frontend ↔ Backend
+- Boas Práticas de Engenharia de Software
+
+---
+
+# ✨ Principais Funcionalidades
+
+## 🔐 Sistema de Autenticação
 
 - Cadastro de usuários
-- Login com JWT
+- Login seguro
+- Autenticação JWT
 - Proteção de rotas
+- Controle de sessão
 - Logout seguro
 
-### 📊 Dashboard
+---
 
-- Indicadores em tempo real
+## 📊 Dashboard Inteligente
+
+Visualização operacional em tempo real:
+
+- Total de reservas
 - Reservas do dia
 - Clientes cadastrados
 - Mesas disponíveis
 - Taxa de ocupação
 - Reservas recentes
+- Indicadores de desempenho
 
-### 🏢 Restaurantes
+---
 
-- Cadastro
-- Listagem
-- Exclusão
-- Integração completa com API
+## 🏢 Gestão de Restaurantes
 
-### 🪑 Mesas
+- Cadastro de restaurantes
+- Atualização de dados
+- Exclusão de registros
+- Consulta detalhada
+- Integração completa com API REST
+
+---
+
+## 🪑 Gestão de Mesas
 
 - Cadastro de mesas
-- Controle de capacidade
-- Controle de status
-- Gestão de disponibilidade
+- Capacidade por mesa
+- Status operacional
+- Controle de disponibilidade
+- Relacionamento com restaurantes
 
-### 👥 Clientes
+---
+
+## 👥 Gestão de Clientes
 
 - Cadastro de clientes
 - Pesquisa por nome
-- Filtro por status
-- Exclusão de clientes
-- Gestão de clientes VIP
-
-### 📅 Reservas
-
-- Cadastro de reservas
-- Associação de clientes
-- Associação de mesas
-- Controle de status
-- Histórico de reservas
-
-### 📈 Disponibilidade
-
-- Visualização em tempo real
-- Controle operacional das mesas
-- Resumo de ocupação
-
-### 🎭 Modo Demonstração
-
-- Dados simulados via LocalStorage
-- Ambiente para testes e apresentações
+- Gerenciamento de informações
+- Exclusão de registros
+- Identificação de clientes VIP
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 📅 Gestão de Reservas
 
-### Frontend
+- Criação de reservas
+- Associação automática entre clientes e mesas
+- Controle de horário
+- Histórico completo
+- Consulta de reservas
 
-- Angular Standalone
-- TypeScript
-- SCSS
-- Angular Router
-- RxJS
+### Status suportados
 
-### Backend
-
-- Java 21
-- Spring Boot
-- Spring Security
-- Spring Data JPA
-- JWT
-- Maven Wrapper
-
-### Banco de Dados
-
-- PostgreSQL
-
-### Deploy
-
-- Vercel
-- Render
-- Neon PostgreSQL
+- AGENDADA
+- CONFIRMADA
+- CANCELADA
+- FINALIZADA
+- NO-SHOW
 
 ---
 
-## 🏗️ Arquitetura
+## 📈 Controle de Disponibilidade
+
+O sistema realiza o controle operacional das mesas permitindo:
+
+- Consulta em tempo real
+- Verificação de ocupação
+- Controle de conflitos
+- Gestão eficiente de capacidade
+
+---
+
+## 🎭 Modo Demonstração
+
+Além do ambiente real conectado ao backend:
+
+- Dados simulados
+- Persistência LocalStorage
+- Ideal para apresentações
+- Demonstração sem necessidade de API
+
+---
+
+# 🏗️ Arquitetura da Solução
 
 ```text
-Angular Frontend
-       │
-       ▼
-Spring Boot API
-       │
-       ▼
-PostgreSQL
+┌─────────────────────┐
+│     Angular App     │
+│      Frontend       │
+└──────────┬──────────┘
+           │ HTTP/REST
+           ▼
+┌─────────────────────┐
+│   Spring Boot API   │
+│ Business Rules      │
+│ Authentication JWT  │
+└──────────┬──────────┘
+           │ JPA/Hibernate
+           ▼
+┌─────────────────────┐
+│     PostgreSQL      │
+│ Persistence Layer   │
+└─────────────────────┘
 ```
 
 ---
 
-## 📱 Responsividade
+# 📋 Regras de Negócio
 
-O sistema foi desenvolvido para funcionar em:
+✅ Um restaurante possui múltiplas mesas
 
-- Desktop
-- Notebook
-- Tablet
-- Smartphone
+✅ Cada mesa possui capacidade definida
+
+✅ Um cliente pode possuir várias reservas
+
+✅ Uma mesa não pode receber reservas conflitantes
+
+✅ A disponibilidade é calculada dinamicamente
+
+✅ Reservas possuem fluxo de status controlado
+
+✅ Histórico operacional das reservas
+
+✅ Controle de ocupação em tempo real
 
 ---
 
-## 📂 Estrutura do Projeto
+# 🧱 Modelo de Dados
+
+Principais entidades:
 
 ```text
-MesaLivre
+Usuários
+    │
+    ├── Autenticação
+    │
+Restaurantes
+    │
+    ├── Mesas
+    │
+Clientes
+    │
+    └── Reservas
+```
+
+---
+
+# 🛠️ Tecnologias Utilizadas
+
+## Frontend
+
+- Angular 20 Standalone
+- TypeScript
+- SCSS
+- Angular Router
+- RxJS
+- HttpClient
+
+### Conceitos Aplicados
+
+- Componentização
+- Lazy Loading
+- Services
+- Guards
+- Interceptors
+- Responsividade Mobile First
+
+---
+
+## Backend
+
+- Java 21
+- Spring Boot 3
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- JWT
+- Maven Wrapper
+
+### Conceitos Aplicados
+
+- Arquitetura em Camadas
+- DTO Pattern
+- Repository Pattern
+- Service Layer
+- REST API
+- Tratamento Global de Exceções
+
+---
+
+## Banco de Dados
+
+- PostgreSQL
+- Relacionamentos 1:N
+- Constraints
+- Integridade Referencial
+
+---
+
+## Deploy
+
+- Vercel (Frontend)
+- Render (Backend)
+- Neon PostgreSQL (Database)
+
+---
+
+# 📱 Design Responsivo
+
+O MesaLivre foi desenvolvido seguindo o conceito **Mobile First**.
+
+Compatível com:
+
+✅ Desktop
+
+✅ Notebook
+
+✅ Tablet
+
+✅ Smartphone
+
+✅ Menu Mobile Responsivo
+
+✅ Sidebar Adaptativa
+
+✅ Telas Otimizadas para Diferentes Resoluções
+
+---
+
+# 📂 Estrutura do Projeto
+
+```text
+mesalivre/
 │
-├── mesalivre-api
+├── mesalivre-api/
+│   ├── src/
+│   ├── pom.xml
+│   └── mvnw
 │
-├── mesalivre-web
+├── mesalivre-web/
+│   ├── src/
+│   ├── package.json
+│   └── angular.json
+│
+├── docs/
 │
 ├── README.md
 │
@@ -152,56 +314,148 @@ MesaLivre
 
 ---
 
-## ⚙️ Executando Localmente
+# 🚀 Executando o Projeto
 
-### Backend
+## 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/Brunnomk/mesalivre.git
+```
+
+---
+
+## 2. Executar o Backend
 
 ```bash
 cd mesalivre-api
-mvnw.cmd spring-boot:run
+
+./mvnw spring-boot:run
 ```
 
-### Frontend
+API disponível em:
+
+```text
+http://localhost:8080
+```
+
+---
+
+## 3. Executar o Frontend
 
 ```bash
 cd mesalivre-web
+
 npm install
+
 ng serve
+```
+
+Aplicação disponível em:
+
+```text
+http://localhost:4200
 ```
 
 ---
 
-## 🔒 Segurança
+# 🔒 Segurança
 
-- Autenticação JWT
-- Rotas protegidas
+O sistema implementa boas práticas de segurança:
+
+- JWT Authentication
 - Senhas criptografadas
-- Controle de acesso
-- Proteção de endpoints
+- Controle de acesso baseado em perfis
+- APIs protegidas
+- Rotas autenticadas
+- Interceptors HTTP
+- Tratamento global de erros
 
 ---
 
-## 🎯 Objetivos do Projeto
+# 📸 Demonstração
 
-Este projeto foi desenvolvido para demonstrar conhecimentos em:
+## Dashboard
 
-- Angular
-- Spring Boot
-- Java 21
-- PostgreSQL
-- APIs REST
-- JWT
-- Desenvolvimento Full Stack
-- Responsividade
-- Arquitetura de Software
+- Indicadores em tempo real
+- Resumo operacional
+- Estatísticas de reservas
+
+## Reservas
+
+- Cadastro completo
+- Controle de status
+- Histórico de movimentações
+
+## Mesas
+
+- Disponibilidade em tempo real
+- Controle de capacidade
+
+## Clientes
+
+- Cadastro e gerenciamento
+- Pesquisa rápida
 
 ---
 
-## 👨‍💻 Autor
+# 🚀 Roadmap
 
-**Brunno Xavier de Oliveira**
+Funcionalidades planejadas para próximas versões:
 
-GitHub:
+- Notificações por E-mail
+- Integração com WhatsApp
+- QR Code para Check-in
+- Relatórios Gerenciais
+- Painel Analytics
+- Multi-Restaurante
+- Gestão de Funcionários
+- Programa de Fidelidade
+- Pagamentos Online
+- Aplicativo Mobile
+
+---
+
+# 💡 Diferenciais do Projeto
+
+- Arquitetura Full Stack Moderna
+- Angular Standalone
+- API REST Segura
+- Persistência Real em PostgreSQL
+- Responsividade Completa
+- Integração Frontend e Backend
+- Autenticação JWT
+- Modo Demonstração para Apresentações
+- Estrutura preparada para evolução SaaS
+
+---
+
+# 👨‍💻 Autor
+
+### Brunno Xavier de Oliveira
+
+Desenvolvedor Full Stack | Engenharia de Software
+
+🔗 GitHub  
 https://github.com/Brunnomk
 
-LinkedIn:
+🔗 LinkedIn  
+https://linkedin.com/in/brunno-xavier-de-oliveira
+
+---
+
+## ⭐ Destaque para Recrutadores
+
+O MesaLivre demonstra experiência prática em:
+
+- Angular
+- Java 21
+- Spring Boot
+- PostgreSQL
+- APIs REST
+- JWT Authentication
+- Arquitetura de Software
+- Desenvolvimento Full Stack
+- Engenharia de Software
+- Responsividade Mobile First
+
+Projeto desenvolvido para compor portfólio profissional, simulando um sistema real de reservas para restaurantes com regras de negócio, autenticação segura e integração completa entre Frontend, Backend e Banco de Dados.
