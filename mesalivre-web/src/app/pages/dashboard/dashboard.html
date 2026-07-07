@@ -1,0 +1,106 @@
+<main class="dashboard-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Painel administrativo</span>
+        <h1>Dashboard</h1>
+      </div>
+
+      <button class="new-reservation-button" routerLink="/reservas/nova">
+        Nova reserva
+      </button>
+    </header>
+
+    <section class="cards-grid">
+      @for (metric of metrics; track metric.title) {
+        <article class="summary-card chart-card">
+          <div
+            class="donut-chart"
+            [style.--progress.%]="metric.percentage"
+            [style.--chart-color]="metric.color"
+          >
+            <div class="donut-center">
+              <strong>{{ metric.value }}</strong>
+            </div>
+          </div>
+
+          <div class="chart-info">
+            <span>{{ metric.title }}</span>
+            <small>{{ metric.description }}</small>
+          </div>
+        </article>
+      }
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel reservations-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Reservas recentes</h2>
+            <p>Acompanhe as próximas reservas do restaurante.</p>
+          </div>
+        </div>
+
+        <div class="table">
+          <div class="table-row table-head">
+            <span>Cliente</span>
+            <span>Mesa</span>
+            <span>Horário</span>
+            <span>Status</span>
+          </div>
+
+          @for (reserva of reservasRecentes; track reserva.id) {
+            <div class="table-row">
+              <div class="mobile-field main-field">
+                <strong>Cliente</strong>
+                <span>{{ reserva.cliente }}</span>
+              </div>
+
+              <div class="mobile-field">
+                <strong>Mesa</strong>
+                <span>{{ reserva.mesa }}</span>
+              </div>
+
+              <div class="mobile-field">
+                <strong>Horário</strong>
+                <span>{{ reserva.horario }}</span>
+              </div>
+
+              <strong class="status {{ getStatusClass(reserva.status) }}">
+                {{ getStatusLabel(reserva.status) }}
+              </strong>
+            </div>
+          } @empty {
+            <div class="table-row empty-row">
+              <span>Nenhuma reserva encontrada.</span>
+            </div>
+          }
+        </div>
+      </article>
+
+      <article class="panel availability-panel">
+        <h2>Disponibilidade</h2>
+        <p>Resumo rápido das mesas para hoje.</p>
+
+        <div class="availability-list">
+          <div>
+            <span>Livres</span>
+            <strong>{{ mesasLivres }}</strong>
+          </div>
+
+          <div>
+            <span>Reservadas</span>
+            <strong>{{ mesasReservadas }}</strong>
+          </div>
+
+          <div>
+            <span>Ocupadas</span>
+            <strong>{{ mesasOcupadas }}</strong>
+          </div>
+        </div>
+      </article>
+    </section>
+  </section>
+</main>

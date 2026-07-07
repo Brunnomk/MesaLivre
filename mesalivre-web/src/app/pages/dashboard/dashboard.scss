@@ -1,0 +1,427 @@
+.dashboard-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+app-sidebar {
+  display: block;
+}
+
+.content {
+  padding: 36px;
+  overflow: auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 42px;
+  letter-spacing: -1px;
+  margin-top: 6px;
+}
+
+.new-reservation-button {
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.25);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 24px;
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.chart-card {
+  min-height: 190px;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.donut-chart {
+  --progress: 0%;
+  --chart-color: #2563eb;
+
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--chart-color) var(--progress),
+    #e2e8f0 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.donut-chart::before {
+  content: '';
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+}
+
+.donut-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-center strong {
+  font-size: 26px;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.chart-info {
+  display: grid;
+  gap: 6px;
+  max-width: 190px;
+}
+
+.chart-info span {
+  color: #0f172a;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.chart-info small {
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.summary-card span {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.summary-card strong {
+  font-size: 36px;
+  letter-spacing: -1px;
+}
+
+.summary-card small {
+  color: #64748b;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr;
+  gap: 24px;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 26px;
+  padding: 26px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.panel h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.panel p {
+  color: #64748b;
+}
+
+.table {
+  display: grid;
+  gap: 8px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr 0.8fr;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.table-head {
+  background: transparent;
+  color: #64748b;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.mobile-field {
+  display: contents;
+}
+
+.mobile-field strong {
+  display: none;
+}
+
+.mobile-field.main-field span {
+  font-weight: 700;
+}
+
+.status {
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.status.confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.scheduled {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status.finished {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.status.no-show {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.availability-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.availability-list div {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.availability-list span {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.availability-list strong {
+  font-size: 28px;
+}
+
+@media (max-width: 1100px) {
+  .dashboard-page {
+    grid-template-columns: 1fr;
+  }
+
+  app-sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 32px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: visible;
+  }
+
+  .table-head {
+    display: none;
+  }
+
+  .table-row {
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #f8fafc;
+  }
+
+  .mobile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    color: #0f172a;
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+
+  .mobile-field strong {
+    display: inline;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  .mobile-field span {
+    color: #0f172a;
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+  }
+
+  .mobile-field.main-field {
+    display: block;
+  }
+
+  .mobile-field.main-field strong {
+    display: none;
+  }
+
+  .mobile-field.main-field span {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .status {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .content {
+    padding: 24px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .new-reservation-button {
+    width: 100%;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .availability-list div {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 20px 12px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .summary-card,
+  .panel {
+    border-radius: 20px;
+  }
+
+  .donut-chart {
+    width: 104px;
+    height: 104px;
+  }
+
+  .donut-chart::before {
+    width: 70px;
+    height: 70px;
+  }
+
+  .donut-center strong {
+    font-size: 24px;
+  }
+
+  .table-row {
+    padding: 16px;
+  }
+}

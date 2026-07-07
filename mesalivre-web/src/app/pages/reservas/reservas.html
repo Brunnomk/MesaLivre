@@ -1,0 +1,163 @@
+<main class="reservas-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Gestão de reservas</span>
+        <h1>Reservas</h1>
+        <p>Consulte, filtre e acompanhe as reservas do restaurante.</p>
+      </div>
+
+      <button class="new-reservation-button" routerLink="/reservas/nova">
+        Nova reserva
+      </button>
+    </header>
+
+    <section class="filters-card">
+      <div class="filter-group">
+        <label>Buscar cliente</label>
+
+        <input
+          type="text"
+          placeholder="Ex: João Silva"
+          name="filtroCliente"
+          [(ngModel)]="filtroCliente"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Data</label>
+
+        <input
+          type="date"
+          name="filtroData"
+          [(ngModel)]="filtroData"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+
+        <select name="filtroStatus" [(ngModel)]="filtroStatus">
+          <option value="">Todos</option>
+          <option value="AGENDADA">Agendada</option>
+          <option value="CONFIRMADA">Confirmada</option>
+          <option value="CANCELADA">Cancelada</option>
+          <option value="FINALIZADA">Finalizada</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button class="filter-button" type="button" (click)="aplicarFiltros()">
+          Filtrar
+        </button>
+
+        <button class="clear-button" type="button" (click)="limparFiltros()">
+          Limpar
+        </button>
+      </div>
+    </section>
+
+    <section class="reservas-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Lista de reservas</h2>
+          <p>Acompanhe as reservas cadastradas e seus respectivos status.</p>
+        </div>
+      </div>
+
+      <div class="reservas-table">
+        <div class="table-row table-head">
+          <span>Cliente</span>
+          <span>Mesa</span>
+          <span>Data</span>
+          <span>Horário</span>
+          <span>Pessoas</span>
+          <span>Status</span>
+          <span>Ações</span>
+        </div>
+
+        @for (reserva of reservasFiltradas; track reserva.id) {
+          <div class="table-row">
+            <div class="client-cell">
+              <span>{{ reserva.cliente }}</span>
+
+              @if (reserva.observacao) {
+                <small>Obs: {{ reserva.observacao }}</small>
+              }
+            </div>
+
+            <div class="mobile-field">
+              <strong>Mesa</strong>
+              <span>{{ reserva.mesa }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Data</strong>
+              <span>{{ reserva.data }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Horário</strong>
+              <span>{{ reserva.horario }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Pessoas</strong>
+              <span>{{ reserva.pessoas }}</span>
+            </div>
+
+            <strong class="status {{ getStatusClass(reserva.status) }}">
+              {{ getStatusLabel(reserva.status) }}
+            </strong>
+
+            <div class="actions-cell">
+              @if (podeConfirmar(reserva)) {
+                <button
+                  type="button"
+                  class="filter-button"
+                  (click)="confirmarReserva(reserva)"
+                >
+                  Confirmar
+                </button>
+              }
+
+              @if (podeFinalizar(reserva)) {
+                <button
+                  type="button"
+                  class="filter-button"
+                  (click)="finalizarReserva(reserva)"
+                >
+                  Finalizar
+                </button>
+              }
+
+              @if (podeCancelar(reserva)) {
+                <button
+                  type="button"
+                  class="clear-button"
+                  (click)="cancelarReserva(reserva)"
+                >
+                  Cancelar
+                </button>
+              }
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="excluirReserva(reserva)"
+              >
+                Excluir
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="table-row empty-row">
+            <span>Nenhuma reserva encontrada.</span>
+          </div>
+        }
+      </div>
+    </section>
+  </section>
+</main>

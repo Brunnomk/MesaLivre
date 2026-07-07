@@ -1,0 +1,259 @@
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  background:
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.22), transparent 35%),
+    linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+  color: #f8fafc;
+}
+
+.login-card {
+  background: rgba(248, 250, 252, 0.96);
+  color: #0f172a;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 24px 0 80px rgba(0, 0, 0, 0.28);
+}
+
+.login-header {
+  margin-bottom: 28px;
+}
+
+.logo {
+  display: inline-block;
+  color: #2563eb;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 28px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.login-header h1 {
+  font-size: 36px;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.login-header p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.login-alert {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: grid;
+  gap: 18px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+  color: #334155;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 15px;
+  outline: none;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.input-error {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12) !important;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 14px;
+  padding: 15px 18px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.28);
+  transition: 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.login-footer {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.login-footer a {
+  color: #2563eb;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+.login-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px;
+  max-width: 780px;
+}
+
+.badge {
+  width: fit-content;
+  background: rgba(37, 99, 235, 0.16);
+  color: #93c5fd;
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.login-info h2 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: 24px;
+}
+
+.login-info p {
+  color: #cbd5e1;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 660px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.stats div {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.stats strong {
+  display: block;
+  font-size: 34px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.stats span {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card {
+    order: 2;
+    padding: 40px 28px;
+  }
+
+  .login-info {
+    order: 1;
+    padding: 40px 28px;
+    max-width: none;
+  }
+
+  .login-info h2 {
+    font-size: clamp(38px, 9vw, 56px);
+    letter-spacing: -2px;
+  }
+
+  .login-info p {
+    font-size: 18px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .login-card {
+    padding: 32px 20px;
+  }
+
+  .login-header h1 {
+    font-size: 32px;
+  }
+
+  .login-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .login-info {
+    padding: 32px 20px;
+  }
+
+  .stats div {
+    padding: 20px;
+  }
+}
+

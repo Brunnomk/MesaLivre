@@ -1,0 +1,131 @@
+<main class="nova-mesa-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Cadastro de mesa</span>
+        <h1>Nova mesa</h1>
+        <p>Cadastre uma nova mesa ou sala e defina sua capacidade.</p>
+      </div>
+
+      <button class="back-button" routerLink="/mesas">
+        Voltar
+      </button>
+    </header>
+
+    <section class="form-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Dados da mesa</h2>
+          <p>Informe nome, tipo, capacidade, status e localização.</p>
+        </div>
+      </div>
+
+      @if (formularioEnviado && formularioInvalido()) {
+        <div class="form-alert">
+          Verifique os campos obrigatórios antes de salvar a mesa.
+        </div>
+      }
+
+      <form class="entity-form">
+        <div class="form-group">
+          <label>Número/Nome</label>
+
+          <input
+            type="text"
+            name="nome"
+            placeholder="Ex: Mesa 16 ou Sala VIP 2"
+            [(ngModel)]="nome"
+            [class.input-error]="campoInvalido(nome)"
+          />
+
+          @if (campoInvalido(nome)) {
+            <small class="error-message">Informe o nome da mesa ou sala.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Tipo</label>
+
+          <select
+            name="tipo"
+            [(ngModel)]="tipo"
+            [class.input-error]="campoInvalido(tipo)"
+          >
+            <option value="">Selecione o tipo</option>
+            <option value="MESA">Mesa</option>
+            <option value="SALA">Sala</option>
+          </select>
+
+          @if (campoInvalido(tipo)) {
+            <small class="error-message">Selecione o tipo.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Capacidade</label>
+
+          <input
+            type="number"
+            name="capacidade"
+            min="1"
+            placeholder="Ex: 4"
+            [(ngModel)]="capacidade"
+            [class.input-error]="capacidadeInvalida()"
+          />
+
+          @if (capacidadeInvalida()) {
+            <small class="error-message">Informe uma capacidade válida.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+
+          <select
+            name="status"
+            [(ngModel)]="status"
+            [class.input-error]="campoInvalido(status)"
+          >
+            <option value="">Selecione o status</option>
+            <option value="DISPONIVEL">Disponível</option>
+            <option value="RESERVADA">Reservada</option>
+            <option value="OCUPADA">Ocupada</option>
+            <option value="INATIVA">Inativa</option>
+          </select>
+
+          @if (campoInvalido(status)) {
+            <small class="error-message">Selecione o status.</small>
+          }
+        </div>
+
+        <div class="form-group full-width">
+          <label>Localização</label>
+
+          <input
+            type="text"
+            name="localizacao"
+            placeholder="Ex: Salão principal"
+            [(ngModel)]="localizacao"
+            [class.input-error]="campoInvalido(localizacao)"
+          />
+
+          @if (campoInvalido(localizacao)) {
+            <small class="error-message">Informe a localização.</small>
+          }
+        </div>
+
+        <div class="form-actions full-width">
+          <button type="button" class="secondary-button" routerLink="/mesas">
+            Cancelar
+          </button>
+
+          <button type="button" class="primary-button" (click)="salvarMesa()">
+            Salvar mesa
+          </button>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>

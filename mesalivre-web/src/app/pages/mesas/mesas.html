@@ -1,0 +1,150 @@
+<main class="mesas-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Gestão de mesas</span>
+        <h1>Mesas</h1>
+        <p>Cadastre e acompanhe mesas, salas, capacidades e status.</p>
+      </div>
+
+      <button class="new-table-button" routerLink="/mesas/nova">
+        Nova mesa
+      </button>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span>Total de mesas</span>
+        <strong>{{ mesas.length }}</strong>
+        <small>Mesas e salas cadastradas</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Disponíveis</span>
+        <strong>{{ mesasFiltradas.length }}</strong>
+        <small>Resultado atual da listagem</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Reservadas</span>
+        <strong>0</strong>
+        <small>Com reserva confirmada</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Inativas</span>
+        <strong>0</strong>
+        <small>Fora de operação</small>
+      </article>
+    </section>
+
+    <section class="filters-card">
+      <div class="filter-group">
+        <label>Buscar</label>
+
+        <input
+          type="text"
+          name="filtroNome"
+          placeholder="Ex: Mesa 12 ou Sala VIP"
+          [(ngModel)]="filtroNome"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Tipo</label>
+
+        <select name="filtroTipo" [(ngModel)]="filtroTipo">
+          <option value="">Todos</option>
+          <option value="MESA">Mesa</option>
+          <option value="SALA">Sala</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+
+        <select name="filtroStatus" [(ngModel)]="filtroStatus">
+          <option value="">Todos</option>
+          <option value="DISPONIVEL">Disponível</option>
+          <option value="RESERVADA">Reservada</option>
+          <option value="OCUPADA">Ocupada</option>
+          <option value="INATIVA">Inativa</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button class="filter-button" type="button" (click)="aplicarFiltros()">
+          Filtrar
+        </button>
+
+        <button class="clear-button" type="button" (click)="limparFiltros()">
+          Limpar
+        </button>
+      </div>
+    </section>
+
+    <section class="mesas-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Lista de mesas</h2>
+          <p>Acompanhe mesas, salas, capacidades e status de operação.</p>
+        </div>
+      </div>
+
+      <div class="mesas-table">
+        <div class="table-row table-head">
+          <span>Número/Nome</span>
+          <span>Tipo</span>
+          <span>Capacidade</span>
+          <span>Status</span>
+          <span>Localização</span>
+          <span>Ações</span>
+        </div>
+
+        @for (mesa of mesasFiltradas; track mesa.id) {
+          <div class="table-row">
+            <div class="mobile-field main-field">
+              <strong>Número/Nome</strong>
+              <span>{{ mesa.nome }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Tipo</strong>
+              <span>{{ getTipoLabel(mesa.tipo) }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Capacidade</strong>
+              <span>{{ mesa.capacidade }} pessoas</span>
+            </div>
+
+            <strong class="status {{ getStatusClass(mesa.status) }}">
+              {{ getStatusLabel(mesa.status) }}
+            </strong>
+
+            <div class="mobile-field">
+              <strong>Localização</strong>
+              <span>{{ mesa.localizacao }}</span>
+            </div>
+
+            <div class="actions-cell">
+              <button
+                type="button"
+                class="delete-button"
+                (click)="excluirMesa(mesa)"
+              >
+                Excluir
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="table-row empty-row">
+            <span>Nenhuma mesa encontrada.</span>
+          </div>
+        }
+      </div>
+    </section>
+  </section>
+</main>

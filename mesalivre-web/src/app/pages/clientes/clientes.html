@@ -1,0 +1,129 @@
+<main class="clientes-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Gestão de clientes</span>
+        <h1>Clientes</h1>
+        <p>Cadastre clientes, acompanhe contatos e histórico de reservas.</p>
+      </div>
+
+      <button class="new-client-button" routerLink="/clientes/novo">
+        Novo cliente
+      </button>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span>Total de clientes</span>
+        <strong>{{ clientes.length }}</strong>
+        <small>Clientes cadastrados</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Novos este mês</span>
+        <strong>12</strong>
+        <small>Crescimento da base</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Clientes ativos</span>
+        <strong>{{ clientesFiltrados.length }}</strong>
+        <small>Resultado atual da listagem</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Reservas médias</span>
+        <strong>3.4</strong>
+        <small>Por cliente cadastrado</small>
+      </article>
+    </section>
+
+    <section class="filters-card">
+      <div class="filter-group">
+        <label>Buscar</label>
+
+        <input
+          type="text"
+          name="filtroNome"
+          placeholder="Ex: Maria Santos"
+          [(ngModel)]="filtroNome"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+
+        <select name="filtroStatus" [(ngModel)]="filtroStatus">
+          <option value="">Todos</option>
+          <option value="ATIVO">Ativo</option>
+          <option value="INATIVO">Inativo</option>
+          <option value="VIP">VIP</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button class="filter-button" type="button" (click)="aplicarFiltros()">
+          Filtrar
+        </button>
+
+        <button class="clear-button" type="button" (click)="limparFiltros()">
+          Limpar
+        </button>
+      </div>
+    </section>
+
+    <section class="clientes-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Lista de clientes</h2>
+          <p>Acompanhe clientes cadastrados, contatos e status de relacionamento.</p>
+        </div>
+      </div>
+
+      <div class="clientes-table">
+        <div class="table-row table-head">
+          <span>Cliente</span>
+          <span>Telefone</span>
+          <span>E-mail</span>
+          <span>Reservas</span>
+          <span>Status</span>
+          <span>Ações</span>
+        </div>
+
+        @for (cliente of clientesFiltrados; track cliente.id) {
+          <div class="table-row">
+            <span>{{ cliente.nome }}</span>
+            <span>{{ cliente.telefone }}</span>
+            <span>{{ cliente.email }}</span>
+            <span>{{ cliente.reservas }}</span>
+
+            <strong class="status {{ getStatusClass(cliente.status) }}">
+              {{ getStatusLabel(cliente.status) }}
+            </strong>
+
+            <div class="actions-cell">
+              <button
+                type="button"
+                class="delete-button"
+                (click)="excluirCliente(cliente)"
+              >
+                Excluir
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="table-row">
+            <span>Nenhum cliente encontrado.</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        }
+      </div>
+    </section>
+  </section>
+</main>

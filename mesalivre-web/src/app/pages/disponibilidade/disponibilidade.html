@@ -1,0 +1,157 @@
+<main class="disponibilidade-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Consulta de disponibilidade</span>
+        <h1>Disponibilidade</h1>
+        <p>Verifique mesas livres por data, horário e quantidade de pessoas.</p>
+      </div>
+
+      <button class="new-reservation-button" routerLink="/reservas/nova">
+        Criar reserva
+      </button>
+    </header>
+
+    <section class="search-card">
+      <div class="filter-group">
+        <label>Restaurante</label>
+
+        <select
+          name="restaurante"
+          [(ngModel)]="restaurante"
+          [class.input-error]="campoInvalido(restaurante)"
+        >
+          @for (restauranteItem of restaurantes; track restauranteItem.id) {
+            <option [value]="restauranteItem.nome">
+              {{ restauranteItem.nome }}
+            </option>
+          }
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Data</label>
+
+        <input
+          name="data"
+          type="date"
+          [(ngModel)]="data"
+          [class.input-error]="campoInvalido(data)"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Hora início</label>
+
+        <input
+          name="horaInicio"
+          type="time"
+          [(ngModel)]="horaInicio"
+          [class.input-error]="campoInvalido(horaInicio) || horarioInvalido()"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Hora fim</label>
+
+        <input
+          name="horaFim"
+          type="time"
+          [(ngModel)]="horaFim"
+          [class.input-error]="campoInvalido(horaFim) || horarioInvalido()"
+        />
+
+        @if (horarioInvalido()) {
+          <small class="error-message">
+            A hora fim deve ser maior que a hora início.
+          </small>
+        }
+      </div>
+
+      <div class="filter-group">
+        <label>Pessoas</label>
+
+        <input
+          name="pessoas"
+          type="number"
+          min="1"
+          placeholder="Ex: 4"
+          [(ngModel)]="pessoas"
+          [class.input-error]="pessoasInvalido()"
+        />
+      </div>
+
+      <div class="search-actions">
+        <button class="search-button" type="button" (click)="consultar()">
+          Consultar
+        </button>
+
+        <button class="clear-button" type="button" (click)="limparConsulta()">
+          Limpar
+        </button>
+      </div>
+    </section>
+
+    @if (consultaRealizada && consultaInvalida()) {
+      <div class="form-alert">
+        Verifique os campos obrigatórios e o horário informado antes de consultar.
+      </div>
+    }
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span>Mesas livres</span>
+        <strong>{{ getMesasLivres() }}</strong>
+        <small>Disponíveis no período</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Reservadas</span>
+        <strong>{{ getMesasReservadas() }}</strong>
+        <small>Com conflito de horário</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Capacidade total</span>
+        <strong>{{ getCapacidadeTotal() }}</strong>
+        <small>Pessoas nas mesas compatíveis</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Melhor opção</span>
+        <strong>{{ getMelhorOpcao() }}</strong>
+        <small>Menor mesa disponível compatível</small>
+      </article>
+    </section>
+
+    <section class="availability-grid">
+      @for (mesa of mesasFiltradas; track mesa.id) {
+        <article class="availability-card {{ getStatusClass(mesa.status) }}">
+          <div class="availability-info">
+            <span class="table-name">{{ mesa.nome }}</span>
+            <strong>{{ mesa.capacidade }} pessoas</strong>
+            <p>{{ mesa.localizacao }}</p>
+          </div>
+
+          <span class="status {{ getStatusBadgeClass(mesa.status) }}">
+            {{ getStatusLabel(mesa.status) }}
+          </span>
+        </article>
+      } @empty {
+        <article class="availability-card inactive">
+          <div class="availability-info">
+            <span class="table-name">Nenhuma mesa disponível</span>
+            <strong>0 pessoas</strong>
+            <p>Altere os filtros da consulta.</p>
+          </div>
+
+          <span class="status inactive-status">
+            Indisponível
+          </span>
+        </article>
+      }
+    </section>
+  </section>
+</main>

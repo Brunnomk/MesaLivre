@@ -1,0 +1,188 @@
+<main class="nova-reserva-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Cadastro de reserva</span>
+        <h1>Nova reserva</h1>
+        <p>Preencha os dados para criar uma nova reserva no restaurante.</p>
+      </div>
+
+      <button class="back-button" routerLink="/reservas">
+        Voltar
+      </button>
+    </header>
+
+    <section class="form-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Dados da reserva</h2>
+          <p>Informe cliente, mesa, data, horário e quantidade de pessoas.</p>
+        </div>
+      </div>
+
+      @if (formularioEnviado && formularioInvalido()) {
+        <div class="form-alert">
+          Verifique os campos obrigatórios e as regras da reserva antes de salvar.
+        </div>
+      }
+
+      <form class="reservation-form">
+        <div class="form-group">
+          <label>Cliente</label>
+
+          <select
+            name="cliente"
+            [(ngModel)]="cliente"
+            [class.input-error]="campoInvalido(cliente)"
+          >
+            <option value="">Selecione um cliente</option>
+
+            @for (cliente of clientes; track cliente.id) {
+              <option [value]="cliente.nome">
+                {{ cliente.nome }}
+              </option>
+            }
+          </select>
+
+          @if (campoInvalido(cliente)) {
+            <small class="error-message">Selecione um cliente.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Mesa</label>
+
+          <select
+            name="mesa"
+            [(ngModel)]="mesa"
+            [class.input-error]="campoInvalido(mesa) || capacidadeMesaExcedida()"
+          >
+            <option value="">Selecione uma mesa</option>
+
+            @for (mesa of mesas; track mesa.id) {
+              <option [value]="mesa.nome">
+                {{ mesa.nome }} - {{ mesa.capacidade }} pessoas
+              </option>
+            }
+          </select>
+
+          @if (campoInvalido(mesa)) {
+            <small class="error-message">Selecione uma mesa.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Data da reserva</label>
+
+          <input
+            name="data"
+            type="date"
+            [min]="dataMinima"
+            [(ngModel)]="data"
+            [class.input-error]="campoInvalido(data) || dataPassada()"
+          />
+
+          @if (campoInvalido(data)) {
+            <small class="error-message">Informe a data da reserva.</small>
+          }
+
+          @if (dataPassada()) {
+            <small class="error-message">
+              A data da reserva não pode ser anterior à data atual.
+            </small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Hora início</label>
+
+          <input
+            name="horaInicio"
+            type="time"
+            [(ngModel)]="horaInicio"
+            [class.input-error]="campoInvalido(horaInicio) || horarioInvalido() || horaInicioPassada()"
+          />
+
+          @if (campoInvalido(horaInicio)) {
+            <small class="error-message">Informe a hora de início.</small>
+          }
+
+          @if (horaInicioPassada()) {
+            <small class="error-message">
+              A hora de início não pode ser anterior ao horário atual.
+            </small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Hora fim</label>
+
+          <input
+            name="horaFim"
+            type="time"
+            [(ngModel)]="horaFim"
+            [class.input-error]="campoInvalido(horaFim) || horarioInvalido()"
+          />
+
+          @if (campoInvalido(horaFim)) {
+            <small class="error-message">Informe a hora de fim.</small>
+          }
+
+          @if (horarioInvalido()) {
+            <small class="error-message">
+              A hora fim deve ser maior que a hora início.
+            </small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Quantidade de pessoas</label>
+
+          <input
+            name="pessoas"
+            type="number"
+            min="1"
+            placeholder="Ex: 4"
+            [(ngModel)]="pessoas"
+            [class.input-error]="pessoasInvalido() || capacidadeMesaExcedida()"
+          />
+
+          @if (pessoasInvalido()) {
+            <small class="error-message">
+              Informe uma quantidade válida de pessoas.
+            </small>
+          }
+
+          @if (capacidadeMesaExcedida()) {
+            <small class="error-message">
+              A mesa selecionada comporta no máximo
+              {{ getCapacidadeMesaSelecionada() }} pessoas.
+            </small>
+          }
+        </div>
+
+        <div class="form-group full-width">
+          <label>Observação</label>
+
+          <textarea
+            name="observacao"
+            placeholder="Ex: Cliente pediu mesa próxima à janela"
+            [(ngModel)]="observacao"
+          ></textarea>
+        </div>
+
+        <div class="form-actions full-width">
+          <button type="button" class="secondary-button" routerLink="/reservas">
+            Cancelar
+          </button>
+
+          <button type="button" class="primary-button" (click)="salvarReserva()">
+            Salvar reserva
+          </button>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>

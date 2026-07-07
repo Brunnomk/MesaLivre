@@ -1,0 +1,139 @@
+<main class="restaurantes-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Gestão de restaurantes</span>
+        <h1>Restaurantes</h1>
+        <p>Cadastre unidades, acompanhe endereços, contatos e status de operação.</p>
+      </div>
+
+      <button class="new-restaurant-button" routerLink="/restaurantes/novo">
+        Novo restaurante
+      </button>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span>Total de unidades</span>
+        <strong>{{ restaurantes.length }}</strong>
+        <small>Restaurantes cadastrados</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Unidades ativas</span>
+        <strong>{{ restaurantesFiltrados.length }}</strong>
+        <small>Resultado atual da listagem</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Mesas vinculadas</span>
+        <strong>62</strong>
+        <small>Entre mesas e salas</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Reservas hoje</span>
+        <strong>24</strong>
+        <small>Somando todas as unidades</small>
+      </article>
+    </section>
+
+    <section class="filters-card">
+      <div class="filter-group">
+        <label>Buscar</label>
+
+        <input
+          type="text"
+          name="filtroNome"
+          placeholder="Ex: MesaLivre Centro"
+          [(ngModel)]="filtroNome"
+        />
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+
+        <select name="filtroStatus" [(ngModel)]="filtroStatus">
+          <option value="">Todos</option>
+          <option value="ATIVO">Ativo</option>
+          <option value="INATIVO">Inativo</option>
+          <option value="MANUTENCAO">Manutenção</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button class="filter-button" type="button" (click)="aplicarFiltros()">
+          Filtrar
+        </button>
+
+        <button class="clear-button" type="button" (click)="limparFiltros()">
+          Limpar
+        </button>
+      </div>
+    </section>
+
+    <section class="restaurantes-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Lista de restaurantes</h2>
+          <p>Acompanhe unidades cadastradas, contatos, mesas vinculadas e status.</p>
+        </div>
+      </div>
+
+      <div class="restaurantes-table">
+        <div class="table-row table-head">
+          <span>Restaurante</span>
+          <span>Endereço</span>
+          <span>Telefone</span>
+          <span>Mesas</span>
+          <span>Status</span>
+          <span>Ações</span>
+        </div>
+
+        @for (restaurante of restaurantesFiltrados; track restaurante.id) {
+          <div class="table-row">
+            <div class="mobile-field main-field">
+              <strong>Restaurante</strong>
+              <span>{{ restaurante.nome }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Endereço</strong>
+              <span>{{ restaurante.endereco }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Telefone</strong>
+              <span>{{ restaurante.telefone }}</span>
+            </div>
+
+            <div class="mobile-field">
+              <strong>Mesas</strong>
+              <span>{{ restaurante.mesas }}</span>
+            </div>
+
+            <strong class="status {{ getStatusClass(restaurante.status) }}">
+              {{ getStatusLabel(restaurante.status) }}
+            </strong>
+
+            <div class="actions-cell">
+              <button
+                type="button"
+                class="delete-button"
+                (click)="excluirRestaurante(restaurante)"
+              >
+                Excluir
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="table-row empty-row">
+            <span>Nenhum restaurante encontrado.</span>
+          </div>
+        }
+      </div>
+    </section>
+  </section>
+</main>

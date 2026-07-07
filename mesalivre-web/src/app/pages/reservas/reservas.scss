@@ -1,0 +1,419 @@
+.reservas-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+app-sidebar {
+  display: block;
+}
+
+.content {
+  padding: 36px;
+  overflow: auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 42px;
+  letter-spacing: -1px;
+  margin-top: 6px;
+}
+
+.topbar p {
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.new-reservation-button {
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 14px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.25);
+}
+
+/* Filtros */
+
+.filters-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr auto;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.filter-group {
+  display: grid;
+  gap: 8px;
+}
+
+.filter-group label {
+  color: #334155;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.filter-group input,
+.filter-group select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 13px 14px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #0f172a;
+  outline: none;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-button,
+.clear-button,
+.delete-button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-button {
+  background: #020617;
+  color: #ffffff;
+}
+
+.filter-button:hover {
+  background: #111827;
+}
+
+.clear-button {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.clear-button:hover {
+  background: #cbd5e1;
+}
+
+.delete-button {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.delete-button:hover {
+  background: #fecaca;
+}
+
+/* Painel */
+
+.reservas-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 26px;
+  padding: 26px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.panel-header {
+  margin-bottom: 24px;
+}
+
+.panel-header h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.panel-header p {
+  color: #64748b;
+}
+
+/* Tabela desktop */
+
+.reservas-table {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1.7fr 0.9fr 0.9fr 1.1fr 0.7fr 0.9fr 1.6fr;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.table-head {
+  background: transparent;
+  color: #64748b;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.client-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.client-cell span {
+  font-weight: 600;
+}
+
+.client-cell small {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* Campos usados como colunas no desktop */
+
+.mobile-field {
+  display: contents;
+}
+
+.mobile-field strong {
+  display: none;
+}
+
+/* Status */
+
+.status {
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.status.confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.scheduled {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status.finished {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.status.no-show {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+/* Ações */
+
+.actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions-cell button {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* Responsivo tablet */
+
+@media (max-width: 1100px) {
+  .reservas-page {
+    grid-template-columns: 1fr;
+  }
+
+  app-sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 32px;
+  }
+
+  .filters-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-actions {
+    grid-column: 1 / -1;
+  }
+
+  .reservas-table {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: visible;
+  }
+
+  .table-head {
+    display: none;
+  }
+
+  .table-row {
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #f8fafc;
+  }
+
+  .client-cell span {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .mobile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    color: #0f172a;
+    font-size: 0.95rem;
+  }
+
+  .mobile-field strong {
+    display: inline;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  .mobile-field span {
+    color: #0f172a;
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+  }
+
+  .status {
+    align-self: flex-start;
+  }
+
+  .actions-cell {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .actions-cell button {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+}
+
+/* Responsivo mobile */
+
+@media (max-width: 700px) {
+  .content {
+    padding: 24px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .new-reservation-button {
+    width: 100%;
+  }
+
+  .filters-card {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+  }
+
+  .filter-button,
+  .clear-button,
+  .delete-button {
+    width: 100%;
+  }
+
+  .reservas-panel {
+    padding: 20px;
+  }
+
+  .actions-cell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 20px 12px;
+  }
+
+  .reservas-panel {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .table-row {
+    padding: 16px;
+  }
+}

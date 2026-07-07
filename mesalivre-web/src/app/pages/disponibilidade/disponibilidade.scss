@@ -1,0 +1,382 @@
+.disponibilidade-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+app-sidebar {
+  display: block;
+}
+
+.content {
+  padding: 36px;
+  overflow: auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 42px;
+  letter-spacing: -1px;
+  margin-top: 6px;
+}
+
+.topbar p {
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.new-reservation-button {
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.25);
+}
+
+/* Consulta */
+
+.search-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.7fr 0.7fr 0.7fr auto;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 18px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.filter-group {
+  display: grid;
+  gap: 8px;
+}
+
+.filter-group label {
+  color: #334155;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.filter-group input,
+.filter-group select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 13px 14px;
+  font-size: 15px;
+  background: #ffffff;
+  color: #0f172a;
+  outline: none;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.input-error {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12) !important;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.form-alert {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.search-actions {
+  display: flex;
+  gap: 10px;
+  align-self: end;
+}
+
+.search-button,
+.clear-button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.search-button {
+  background: #020617;
+  color: white;
+}
+
+.search-button:hover {
+  background: #111827;
+}
+
+.clear-button {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.clear-button:hover {
+  background: #cbd5e1;
+}
+
+/* Resumo */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 24px;
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.summary-card span {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.summary-card strong {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+.summary-card small {
+  color: #64748b;
+}
+
+/* Cards de disponibilidade */
+
+.availability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.availability-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.availability-info {
+  min-width: 0;
+}
+
+.availability-card strong {
+  display: block;
+  font-size: 26px;
+  margin: 8px 0;
+}
+
+.availability-card p {
+  color: #64748b;
+  word-break: break-word;
+}
+
+.table-name {
+  color: #2563eb;
+  font-weight: 900;
+}
+
+.status {
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.available-status {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.reserved-status {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.occupied-status {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.inactive-status {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.availability-card.available {
+  border-color: rgba(22, 101, 52, 0.2);
+}
+
+.availability-card.reserved {
+  border-color: rgba(29, 78, 216, 0.2);
+}
+
+.availability-card.occupied {
+  border-color: rgba(146, 64, 14, 0.2);
+}
+
+.availability-card.inactive {
+  opacity: 0.8;
+}
+
+/* Large tablet */
+
+@media (max-width: 1200px) {
+  .search-card {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .search-actions {
+    grid-column: 1 / -1;
+  }
+
+  .availability-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .disponibilidade-page {
+    grid-template-columns: 1fr;
+  }
+
+  app-sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 32px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .content {
+    padding: 24px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .new-reservation-button {
+    width: 100%;
+  }
+
+  .search-card,
+  .summary-grid,
+  .availability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-actions {
+    flex-direction: column;
+  }
+
+  .search-button,
+  .clear-button {
+    width: 100%;
+  }
+
+  .availability-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 20px 12px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .search-card,
+  .summary-card,
+  .availability-card {
+    border-radius: 20px;
+  }
+
+  .search-card,
+  .summary-card,
+  .availability-card {
+    padding: 20px;
+  }
+
+  .summary-card strong {
+    font-size: 28px;
+  }
+
+  .availability-card strong {
+    font-size: 24px;
+  }
+}

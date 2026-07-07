@@ -1,0 +1,78 @@
+<button
+  type="button"
+  class="mobile-menu-button"
+  (click)="abrirMenu()"
+  aria-label="Abrir menu"
+>
+  ☰
+</button>
+
+<div
+  class="sidebar-overlay"
+  [class.visible]="menuAberto"
+  (click)="fecharMenu()"
+></div>
+
+<aside class="sidebar" [class.open]="menuAberto">
+  <div class="sidebar-mobile-header">
+    <div class="brand">
+      <div class="brand-icon">M</div>
+      <span>MesaLivre</span>
+    </div>
+
+    <button
+      type="button"
+      class="close-menu-button"
+      (click)="fecharMenu()"
+      aria-label="Fechar menu"
+    >
+      ×
+    </button>
+  </div>
+
+  <div class="brand desktop-brand">
+    <div class="brand-icon">M</div>
+    <span>MesaLivre</span>
+  </div>
+
+  <nav class="menu">
+    <a routerLink="/dashboard" routerLinkActive="active" (click)="fecharMenu()">
+      Dashboard
+    </a>
+
+    <a routerLink="/reservas" routerLinkActive="active" (click)="fecharMenu()">
+      Reservas
+    </a>
+
+    <a routerLink="/mesas" routerLinkActive="active" (click)="fecharMenu()">
+      Mesas
+    </a>
+
+    <a routerLink="/clientes" routerLinkActive="active" (click)="fecharMenu()">
+      Clientes
+    </a>
+
+    <a routerLink="/restaurantes" routerLinkActive="active" (click)="fecharMenu()">
+      Restaurantes
+    </a>
+
+    <a routerLink="/disponibilidade" routerLinkActive="active" (click)="fecharMenu()">
+      Disponibilidade
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-info">
+      <span>Logado como</span>
+      <strong>{{ nomeUsuarioLogado }}</strong>
+    </div>
+
+    <button
+      type="button"
+      class="logout-button"
+      (click)="sair()"
+    >
+      Sair
+    </button>
+  </div>
+</aside>

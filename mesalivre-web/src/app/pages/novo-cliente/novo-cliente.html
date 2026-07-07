@@ -1,0 +1,111 @@
+<main class="novo-cliente-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Cadastro de cliente</span>
+        <h1>Novo cliente</h1>
+        <p>Cadastre um novo cliente para associar às reservas.</p>
+      </div>
+
+      <button class="back-button" routerLink="/clientes">
+        Voltar
+      </button>
+    </header>
+
+    <section class="form-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Dados do cliente</h2>
+          <p>Informe nome, telefone, e-mail e status do cliente.</p>
+        </div>
+      </div>
+
+      @if (formularioEnviado && formularioInvalido()) {
+        <div class="form-alert">
+          Verifique os campos obrigatórios antes de salvar o cliente.
+        </div>
+      }
+
+      <form class="entity-form">
+        <div class="form-group">
+          <label>Nome</label>
+
+          <input
+            type="text"
+            name="nome"
+            placeholder="Ex: Maria Santos"
+            [(ngModel)]="nome"
+            [class.input-error]="campoInvalido(nome)"
+          />
+
+          @if (campoInvalido(nome)) {
+            <small class="error-message">Informe o nome do cliente.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Telefone</label>
+
+          <input
+            type="text"
+            name="telefone"
+            placeholder="Ex: +351 912 345 678"
+            [(ngModel)]="telefone"
+            [class.input-error]="campoInvalido(telefone)"
+          />
+
+          @if (campoInvalido(telefone)) {
+            <small class="error-message">Informe o telefone do cliente.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>E-mail</label>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Ex: cliente@email.com"
+            [(ngModel)]="email"
+            [class.input-error]="emailInvalido()"
+          />
+
+          @if (emailInvalido()) {
+            <small class="error-message">Informe um e-mail válido.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+
+          <select
+            name="status"
+            [(ngModel)]="status"
+            [class.input-error]="statusInvalido()"
+          >
+            <option value="">Selecione o status</option>
+            <option value="ATIVO">Ativo</option>
+            <option value="INATIVO">Inativo</option>
+            <option value="VIP">VIP</option>
+          </select>
+
+          @if (statusInvalido()) {
+            <small class="error-message">Selecione o status do cliente.</small>
+          }
+        </div>
+
+        <div class="form-actions full-width">
+          <button type="button" class="secondary-button" routerLink="/clientes">
+            Cancelar
+          </button>
+
+          <button type="button" class="primary-button" (click)="salvarCliente()">
+            Salvar cliente
+          </button>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>

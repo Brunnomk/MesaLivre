@@ -1,0 +1,128 @@
+<main class="novo-restaurante-page">
+  <app-sidebar></app-sidebar>
+
+  <section class="content">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Cadastro de restaurante</span>
+        <h1>Novo restaurante</h1>
+        <p>Cadastre uma nova unidade do restaurante no sistema.</p>
+      </div>
+
+      <button class="back-button" routerLink="/restaurantes">
+        Voltar
+      </button>
+    </header>
+
+    <section class="form-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Dados do restaurante</h2>
+          <p>Informe nome, endereço, telefone, quantidade de mesas e status da unidade.</p>
+        </div>
+      </div>
+
+      @if (formularioEnviado && formularioInvalido()) {
+        <div class="form-alert">
+          Verifique os campos obrigatórios antes de salvar o restaurante.
+        </div>
+      }
+
+      <form class="entity-form">
+        <div class="form-group">
+          <label>Nome do restaurante</label>
+
+          <input
+            type="text"
+            name="nome"
+            placeholder="Ex: MesaLivre Centro"
+            [(ngModel)]="nome"
+            [class.input-error]="textoInvalido(nome)"
+          />
+
+          @if (textoInvalido(nome)) {
+            <small class="error-message">Informe o nome do restaurante.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Telefone</label>
+
+          <input
+            type="text"
+            name="telefone"
+            placeholder="Ex: +351 266 123 456"
+            [(ngModel)]="telefone"
+            [class.input-error]="textoInvalido(telefone)"
+          />
+
+          @if (textoInvalido(telefone)) {
+            <small class="error-message">Informe o telefone.</small>
+          }
+        </div>
+
+        <div class="form-group full-width">
+          <label>Endereço</label>
+
+          <input
+            type="text"
+            name="endereco"
+            placeholder="Ex: Rua Principal, 120"
+            [(ngModel)]="endereco"
+            [class.input-error]="textoInvalido(endereco)"
+          />
+
+          @if (textoInvalido(endereco)) {
+            <small class="error-message">Informe o endereço.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Mesas vinculadas</label>
+
+          <input
+            type="number"
+            name="mesas"
+            min="1"
+            placeholder="Ex: 18"
+            [(ngModel)]="mesas"
+            [class.input-error]="mesasInvalido()"
+          />
+
+          @if (mesasInvalido()) {
+            <small class="error-message">Informe uma quantidade válida de mesas.</small>
+          }
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+
+          <select
+            name="status"
+            [(ngModel)]="status"
+            [class.input-error]="statusInvalido()"
+          >
+            <option value="">Selecione o status</option>
+            <option value="ATIVO">Ativo</option>
+            <option value="INATIVO">Inativo</option>
+            <option value="MANUTENCAO">Manutenção</option>
+          </select>
+
+          @if (statusInvalido()) {
+            <small class="error-message">Selecione o status da unidade.</small>
+          }
+        </div>
+
+        <div class="form-actions full-width">
+          <button type="button" class="secondary-button" routerLink="/restaurantes">
+            Cancelar
+          </button>
+
+          <button type="button" class="primary-button" (click)="salvarRestaurante()">
+            Salvar restaurante
+          </button>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>

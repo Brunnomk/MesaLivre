@@ -1,0 +1,125 @@
+<main class="cadastro-page">
+  <section class="cadastro-card">
+    <div class="cadastro-header">
+      <span class="logo">MesaLivre</span>
+      <h1>Criar conta</h1>
+      <p>Cadastre seu acesso para gerenciar restaurantes, mesas, clientes e reservas.</p>
+    </div>
+
+    @if (mensagemErro) {
+      <div class="cadastro-alert error">
+        {{ mensagemErro }}
+      </div>
+    }
+
+    @if (mensagemSucesso) {
+      <div class="cadastro-alert success">
+        {{ mensagemSucesso }}
+      </div>
+    }
+
+    <form class="cadastro-form" (ngSubmit)="criarConta()">
+      <label>
+        Nome completo
+
+        <input
+          type="text"
+          name="nome"
+          placeholder="Ex: Brunno Xavier"
+          [(ngModel)]="nome"
+          [class.input-error]="nomeInvalido()"
+        />
+
+        @if (nomeInvalido()) {
+          <small class="error-message">
+            Informe seu nome.
+          </small>
+        }
+      </label>
+
+      <label>
+        E-mail
+
+        <input
+          type="email"
+          name="email"
+          placeholder="exemplo@email.com"
+          [(ngModel)]="email"
+          [class.input-error]="emailInvalido()"
+        />
+
+        @if (emailInvalido()) {
+          <small class="error-message">
+            Informe um e-mail válido.
+          </small>
+        }
+      </label>
+
+      <label>
+        Senha
+
+        <input
+          type="password"
+          name="senha"
+          placeholder="Mínimo de 6 caracteres"
+          [(ngModel)]="senha"
+          [class.input-error]="senhaInvalida()"
+        />
+
+        @if (senhaInvalida()) {
+          <small class="error-message">
+            A senha deve ter pelo menos 6 caracteres.
+          </small>
+        }
+      </label>
+
+      <label>
+        Confirmar senha
+
+        <input
+          type="password"
+          name="confirmarSenha"
+          placeholder="Digite a senha novamente"
+          [(ngModel)]="confirmarSenha"
+          [class.input-error]="confirmarSenhaInvalida()"
+        />
+
+        @if (confirmarSenhaInvalida()) {
+          <small class="error-message">
+            As senhas não coincidem.
+          </small>
+        }
+      </label>
+
+      <button type="submit" [disabled]="cadastrando">
+        {{ cadastrando ? 'Criando conta...' : 'Criar conta' }}
+      </button>
+    </form>
+
+    <div class="cadastro-footer">
+      <a routerLink="/login">Já tenho conta</a>
+      <a routerLink="/">Voltar para início</a>
+    </div>
+  </section>
+
+  <section class="cadastro-info">
+    <span class="badge">Novo acesso</span>
+
+    <h2>Comece a controlar suas reservas com segurança.</h2>
+
+    <p>
+      Crie sua conta para acessar o painel real do MesaLivre. O modo demonstração
+      continua disponível para testar o sistema com dados fictícios.
+    </p>
+
+    <div class="info-card">
+      <strong>Modo real</strong>
+      <span>Cadastro e login conectados ao banco de dados.</span>
+    </div>
+
+    <div class="info-card">
+      <strong>Modo demonstração</strong>
+      <span>Acesso livre com dados mockados para experimentar o sistema.</span>
+    </div>
+  </section>
+</main>
