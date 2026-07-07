@@ -85,7 +85,7 @@ export class NovaReserva implements OnInit {
 
     this.salvando = true;
 
-    const restauranteId = 2;
+    const restauranteId = 1;
 
     const novaReserva: Reserva = {
       id: 0,
