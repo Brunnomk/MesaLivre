@@ -4,12 +4,22 @@
 
 <p align="center">
 
-![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=for-the=angular&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=for-the-badge&&logoColor=white)
-![Java](https://lds.io/badge/Java-21-orange?style=for-the-badge)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white//img.shields.io/badge/JWT-ication-black?style=for-the-badge)
-![REST API](httpsds.io/badge/REST_API-Ready-blue?style=for-the-badge)
-![Responsive](https://img.shields.io/be-Mobile%20First-success?style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/Angular-20-DD0031)
+![Static Badge](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F)
+![Static Badge](https://img.shields.io/badge/Java-21-orange)
+![Static Badge](https://img.shields.io/badge/PostgreSQL-Database-336791)
+![Static Badge](https://img.shields.io/badge/JWT-Authentication-black)
+![Static Badge](https://img.shields.io/badge/REST%20API-Ready-blue)
+![Static Badge](https://img.shields.io/badge/TypeScript-5.x-3178C6)
+![Static Badge](https://img.shields.io/badge/SCSS-Styling-CC6699)
+![Static Badge](https://img.shields.io/badge/Spring%20Security-Secure-6DB33F)
+![Static Badge](https://img.shields.io/badge/Hibernate-ORM-59666C)
+![Static Badge](https://img.shields.io/badge/Maven-Build-C71A36)
+![Static Badge](https://img.shields.io/badge/RxJS-Reactive-B7178C)
+![Static Badge](https://img.shields.io/badge/Responsive-Mobile%20First-success)
+![Static Badge](https://img.shields.io/badge/Vercel-Frontend-000000)
+![Static Badge](https://img.shields.io/badge/Render-Backend-46E3B7)
+![Static Badge](https://img.shields.io/badge/Neon-PostgreSQL-00E599)
 
 </p>
 
