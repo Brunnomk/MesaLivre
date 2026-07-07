@@ -9,7 +9,7 @@ import { DemoDataService } from './demo-data.service';
   providedIn: 'root',
 })
 export class MesaService {
-  private readonly apiUrl = 'http://localhost:8080/api';
+  private readonly apiUrl = 'http://mesalivre-web/src/api';
 
   constructor(
     private http: HttpClient,

@@ -9,7 +9,7 @@ import { DemoDataService } from './demo-data.service';
   providedIn: 'root',
 })
 export class ClienteService {
-  private readonly apiUrl = 'http://localhost:8080/api/clientes';
+  private readonly apiUrl = 'http://mesalivre-web/src/api/clientes';
 
   constructor(
     private http: HttpClient,

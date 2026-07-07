@@ -24,7 +24,7 @@ export interface UsuarioLogado {
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:8080/api/auth';
+  private readonly apiUrl = 'https://mesalivre-api.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
