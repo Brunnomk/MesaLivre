@@ -4,7 +4,7 @@
 
 <p align="center">
 
-![Angular](https://img.shields.io/badge/Angular-20-DD0031the-badge&logo=angular&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=for-the=angular&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=for-the-badge&&logoColor=white)
 ![Java](https://lds.io/badge/Java-21-orange?style=for-the-badge)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white//img.shields.io/badge/JWT-ication-black?style=for-the-badge)
