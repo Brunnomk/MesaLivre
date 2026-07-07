@@ -1,11 +1,11 @@
 # 🍽️ MesaLivre – Sistema de Reservas para Restaurantes
 
-![Angular](https://img.shields.io/badge/Angularstyle=for-the-badge&logo=angular
-![Spring Boot](https://img.shields.io/badge/S6DB33F?style=for-the-badge&logo=springboot
-![Java](https://lds.io/badge/Java-21-orange?style=for-the-badge
-![PostgreSQL](https://img.shields.io/bL-Database-336791?style=for-the-badge&logo=postgresql
-![JWT](https://img.shields.io/badge/JWT-Authenticationstyle=for-the-badge
-![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-blue?style
+![Angular](https://img.shields.io/badge/Angularstyle=for-the-badge&logo=angular)
+![Spring Boot](https://img.shields.io/badge/S6DB33F?style=for-the-badge&logo=springboot)
+![Java](https://lds.io/badge/Java-21-orange?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/bL-Database-336791?style=for-the-badge&logo=postgresql)
+![JWT](https://img.shields.io/badge/JWT-Authenticationstyle=for-the-badge)
+![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-blue?style)
 
 ---
 
