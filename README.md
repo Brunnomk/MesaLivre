@@ -895,7 +895,7 @@ Estudante de Engenharia de Software
 https://github.com/Brunnomk
 
 🔗 LinkedIn  
-https://linkedin.com/in/brunno-xavier-de-oliveira
+https://linkedin.com/in/brunno-dev
 
 ---
 
